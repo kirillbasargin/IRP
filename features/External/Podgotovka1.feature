@@ -1504,6 +1504,9 @@ Scenario: check filling revenue type (from Company)
 			| 'Revenue type'             | 'Item'  | 'Item key' | 'Quantity'     | 'Unit' |
 			| 'Telephone communications' | 'Dress' | 'XS/Blue'  | '1,000' | 'pcs'  |
 
+Scenario: Check and skeep
+	And I save "{ЭтотОбъект.Элементы.ДеревоТестов.ТекущиеДанные.ПолучитьРодителя().GetItems()[0].Статус}" in "InitialCount" variable
+
 
 Scenario: check	filling expense type (from Company)
 	* Select Company	

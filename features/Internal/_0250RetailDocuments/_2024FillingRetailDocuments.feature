@@ -140,11 +140,12 @@ Scenario: _0154100 preparation ( filling documents)
 		And I click Select button of "Bank term" field
 		Then "Bank terms" window is opened
 		And I select current line in "List" table
-		And I click "Save and close" button			
+		And I click "Save and close1" button			
 	* Workstation
 		When create Workstation
 	
-	
+Scenario: Check preparation
+	When Check and skeep	
 
 Scenario: _0154135 create document Retail Sales Receipt
 	And I close all client application windows
