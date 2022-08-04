@@ -1221,4 +1221,13 @@
       <dataHistory>Use</dataHistory>
     </attributes>
   </tabularSections>
+  <commands uuid="5d847237-3f44-4cbb-9b3c-7197446bbd2d">
+    <name>SalesOrderPrint</name>
+    <group>FormCommandBarImportant</group>
+    <commandParameterType>
+      <types>DocumentRef.SalesOrder</types>
+    </commandParameterType>
+    <parameterUseMode>Multiple</parameterUseMode>
+    <representation>Auto</representation>
+  </commands>
 </mdclass:Document>

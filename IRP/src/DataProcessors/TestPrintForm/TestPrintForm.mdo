@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2c2b3f8a-498f-4b97-88d6-cf5ebc14121f">
+  <producedTypes>
+    <objectType typeId="20f2cdc1-dd13-4eed-a0e6-9c8553e544f6" valueTypeId="ca1f7122-43d0-4bc2-b22b-a99645a1806c"/>
+    <managerType typeId="47ae4e06-ebbe-40e9-9ef6-f68f06312101" valueTypeId="c94ad8c9-12bf-440d-acc9-38811572c5df"/>
+  </producedTypes>
+  <name>TestPrintForm</name>
+  <synonym>
+    <key>en</key>
+    <value>Test print form</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.TestPrintForm.Form.Form</defaultForm>
+  <forms uuid="98a00c02-022d-47c5-b0ae-cf0e9c21eafa">
+    <name>Form</name>
+    <synonym>
+      <key>en</key>
+      <value>Form</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

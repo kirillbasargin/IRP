@@ -5,6 +5,16 @@ Procedure OnOpen(Cancel)
 	EditResultSwitch();
 EndProcedure
 
+
+&AtClient
+Procedure NotificationProcessing(EventName, Parameter, Source)
+	If EventName = "AddTemplate" Then
+		Message("" + EventName + "" + Source);
+		Result = Parameter.Result;	
+	EndIf;
+EndProcedure
+
+
 #EndRegion
 
 #Region FormCommandsEventHandlers
@@ -29,4 +39,6 @@ EndProcedure
 Procedure OnCreateAtServer(Cancel, StandardProcessing)
 	Result = Parameters.Result;
 EndProcedure
+
+
 #EndRegion

@@ -413,3 +413,66 @@ Function R3024B_SalesOrdersToBePaid()
 EndFunction
 
 #EndRegion
+
+// The procedure for filling a spreadsheet document for printing.
+//
+// Parameters:
+//	Spreadsheet - SpreadsheetDocument - spreadsheet document to fill out and print.
+//	Ref - Arbitrary - contains a reference to the object for which the print command was executed.
+Procedure SalesOrderPrint(Spreadsheet, Ref) Export
+
+	Template = Documents.SalesOrder.GetTemplate("SalesOrderPrint");
+	Query = New Query;
+	Query.Text =
+		"SELECT
+		|	SalesOrder.Number,
+		|	SalesOrder.Date,
+		|	SalesOrder.Company,
+		|	SalesOrder.Currency,
+		|	SalesOrder.Partner,
+		|	SalesOrder.Status,
+		|	SalesOrder.Author,
+		|	SalesOrder.Description,
+		|	SalesOrder.ItemList.(
+		|		ItemKey,
+		|		Quantity,
+		|		Unit)
+		|FROM
+		|	Document.SalesOrder AS SalesOrder
+		|WHERE
+		|	SalesOrder.Ref IN (&Ref)";
+	Query.Parameters.Insert("Ref", Ref);
+	Selection = Query.Execute().Select();
+
+	AreaCaption = Template.GetArea("Caption");
+	Header = Template.GetArea("Header");
+	AreaItemListHeader = Template.GetArea("ItemListHeader");
+	AreaItemList = Template.GetArea("ItemList");
+	Footer = Template.GetArea("Footer");
+
+	Spreadsheet.Clear();
+
+	InsertPageBreak = False;
+	While Selection.Next() Do
+		If InsertPageBreak Then
+			Spreadsheet.PutHorizontalPageBreak();
+		EndIf;
+
+		Spreadsheet.Put(AreaCaption);
+
+		Header.Parameters.Fill(Selection);
+		Spreadsheet.Put(Header, Selection.Level());
+		Spreadsheet.Put(AreaItemListHeader);
+		SelectionItemList = Selection.ItemList.Select();
+		While SelectionItemList.Next() Do
+			AreaItemList.Parameters.Fill(SelectionItemList);
+			Spreadsheet.Put(AreaItemList, SelectionItemList.Level());
+		EndDo;
+		
+		Footer.Parameters.Fill(Selection);
+		Spreadsheet.Put(Footer);
+		
+		InsertPageBreak = True;
+	EndDo;
+	//}}
+EndProcedure
