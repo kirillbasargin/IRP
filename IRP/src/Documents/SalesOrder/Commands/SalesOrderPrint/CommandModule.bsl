@@ -25,5 +25,5 @@ EndProcedure
 //	CommandParameter - Arbitrary - contains a reference to the object for which the print command was executed.
 &AtServer
 Procedure SalesOrderPrint(Spreadsheet, CommandParameter)
-	Documents.SalesOrder.SalesOrderPrint(Spreadsheet, CommandParameter);
+	Spreadsheet = Documents.SalesOrder.SalesOrderPrint(CommandParameter);
 EndProcedure

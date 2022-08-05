@@ -417,10 +417,9 @@ EndFunction
 // The procedure for filling a spreadsheet document for printing.
 //
 // Parameters:
-//	Spreadsheet - SpreadsheetDocument - spreadsheet document to fill out and print.
 //	Ref - Arbitrary - contains a reference to the object for which the print command was executed.
-Procedure SalesOrderPrint(Spreadsheet, Ref) Export
-
+Function SalesOrderPrint(Ref) Export
+	
 	Template = Documents.SalesOrder.GetTemplate("SalesOrderPrint");
 	Query = New Query;
 	Query.Text =
@@ -444,13 +443,16 @@ Procedure SalesOrderPrint(Spreadsheet, Ref) Export
 	Query.Parameters.Insert("Ref", Ref);
 	Selection = Query.Execute().Select();
 
+	
+	
 	AreaCaption = Template.GetArea("Caption");
 	Header = Template.GetArea("Header");
 	AreaItemListHeader = Template.GetArea("ItemListHeader");
 	AreaItemList = Template.GetArea("ItemList");
 	Footer = Template.GetArea("Footer");
-
-	Spreadsheet.Clear();
+	
+	Spreadsheet = New SpreadsheetDocument;
+	//Spreadsheet.Clear();
 
 	InsertPageBreak = False;
 	While Selection.Next() Do
@@ -474,5 +476,7 @@ Procedure SalesOrderPrint(Spreadsheet, Ref) Export
 		
 		InsertPageBreak = True;
 	EndDo;
-	//}}
-EndProcedure
+
+	Return Spreadsheet;
+
+EndFunction

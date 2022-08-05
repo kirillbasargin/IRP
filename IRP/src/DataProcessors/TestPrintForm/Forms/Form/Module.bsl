@@ -6,6 +6,11 @@ Procedure OpenPrintForm(Command)
 	OpenForm("CommonForm.PrintForm", Param);
 EndProcedure
 
+&AtServer
+Function InitPrintParam()
+	Return UniversalPrintServer.InitPrintParam();	
+EndFunction
+
 &AtClient
 Procedure SetSD(Command)
 	Spreadsheet = New SpreadsheetDocument;
@@ -17,15 +22,7 @@ EndProcedure
 
 &AtServer
 Procedure SetSDServer(Spreadsheet)
-	
 	Ref = Documents.SalesOrder.FindByNumber("3", Date(2021, 1, 1));
-	Documents.SalesOrder. SalesOrderPrint(Spreadsheet, Ref);
-	
+	Spreadsheet = Documents.SalesOrder.SalesOrderPrint(Ref);
 EndProcedure
 
-&AtServer
-Function InitPrintParam()
-	Param = New Structure();
-	Param.Insert("Result", New SpreadsheetDocument);
-	Return  Param; 
-EndFunction
