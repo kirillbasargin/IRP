@@ -1,10 +1,10 @@
 ﻿#language: en
 @tree
 @Positive
-@Other
+@ExternalFunctions
 
 
-Feature: data history
+Feature: external functions
 
 Variables:
 Path = "{?(ValueIsFilled(ПолучитьСохраненноеЗначениеИзКонтекстаСохраняемого("Path")), ПолучитьСохраненноеЗначениеИзКонтекстаСохраняемого("Path"), "#workingDir#")}"
@@ -14,7 +14,7 @@ Background:
 	Given I launch TestClient opening script or connect the existing one
 
 
-Scenario: _602700 preparation (data history)
+Scenario: _602700 preparation (external function)
 	When set True value to the constant
 	And I set "True" value to the constant "UseJobQueueForExternalFunctions"
 	And I close TestClient session
@@ -228,6 +228,9 @@ Scenario: _602712 check button pause, continue, stop
 			|'Done'|
 			|'Done'|
 	And I close all client application windows
+	When in sections panel I select "Quick menu"
+	And I click Test Client element "Functions" "Button" UI Automation
+		
 	
 		
 				
