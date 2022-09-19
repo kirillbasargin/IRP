@@ -256,9 +256,7 @@ Function R4052T_StockAdjustmentAsSurplus()
 		   |	*
 		   |INTO R4052T_StockAdjustmentAsSurplus
 		   |FROM
-		   |	ItemList
-		   |WHERE
-		   |	NOT ItemList.PhysicalInventoryExists";
+		   |	ItemList";
 EndFunction
 
 Function R4050B_StockInventory()

@@ -257,9 +257,7 @@ Function R4051T_StockAdjustmentAsWriteOff()
 		   |	*
 		   |INTO R4051T_StockAdjustmentAsWriteOff
 		   |FROM
-		   |	ItemList AS ItemList
-		   |WHERE
-		   |	NOT ItemList.PhysicalInventoryExists";
+		   |	ItemList AS ItemList";
 EndFunction
 
 Function R4050B_StockInventory()
