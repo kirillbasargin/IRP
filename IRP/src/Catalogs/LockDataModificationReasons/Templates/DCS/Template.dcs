@@ -4,6 +4,11 @@
 		<name>DataSource1</name>
 		<dataSourceType>Local</dataSourceType>
 	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>DataSet</name>
+		<dataSource>DataSource1</dataSource>
+		<query/>
+	</dataSet>
 	<settingsVariant>
 		<dcsset:name>Default</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Default</dcsset:presentation>

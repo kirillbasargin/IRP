@@ -389,7 +389,7 @@ Function DataIsLocked_ByRef_AdvancedMode(ArrayOfLockedReasons, SourceParams, Rul
 		EndIf;
 
 		Settings = Rules[Index].LockDataModificationReasons.DCS.Get(); // DataCompositionSettings
-		InitDataCompositionSchemeForRef(Settings, SourceParams.MetadataName, CheckCurrent);
+		InitDataCompositionSchemeForRef(Settings, SourceParams, CheckCurrent);
 	EndDo;
 	Return True;
 EndFunction
@@ -398,44 +398,18 @@ EndFunction
 // 
 // Parameters:
 //  Settings - DataCompositionSettings - Settings
-//  MetadataName - String - Metadata name
-Procedure InitDataCompositionSchemeForRef(Settings, MetadataName, CheckCurrent)
+Procedure InitDataCompositionSchemeForRef(Settings, SourceParams, CheckCurrent)
 	
-	Selection = Settings.Selection.Items.Add(Type("DataCompositionSelectedField"));
-	Selection.Use = True;
-	Selection.Field = New DataCompositionField("Code");
+	NewFilter = Settings.Filter.Items.Add(Type("DataCompositionFilterItem"));
+	LeftValue = New DataCompositionField("Ref");
+	NewFilter.LeftValue = LeftValue;
+	NewFilter.Use = True;
+	NewFilter.ComparisonType = DataCompositionComparisonType.Equal;
+	NewFilter.RightValue = SourceParams.Source.Ref;
 	
 	DCSTemplate = Catalogs.LockDataModificationReasons.GetTemplate("DCS");
+	Result = IDInfoServer.GetRefsByCondition(DCSTemplate, Settings);
 	
-	DataSources = DCSTemplate.DataSources.Add();
-	DataSources.DataSourceType = "Local";
-	DataSources.Name = "DataSource";
-	
-	Query = 
-	"SELECT 
-	|	*
-	|FROM
-	|    " + MetadataName + " AS DataSet";
-	DataSet = DCSTemplate.DataSets.Add(Type("DataCompositionSchemaDataSetQuery"));
-	DataSet.Query = Query;
-	DataSet.Name = MetadataName;
-	DataSet.DataSource = DataSources.Name;
-
-
-	Composer = New DataCompositionTemplateComposer();
-	Template = Composer.Execute(DCSTemplate, Settings, , , Type("DataCompositionValueCollectionTemplateGenerator"));
-
-	Processor = New DataCompositionProcessor();
-	Processor.Initialize(Template);
-
-	Output = New DataCompositionResultValueCollectionOutputProcessor();
-	Result = New ValueTable();
-	Output.SetObject(Result);
-	Output.Output(Processor);
-
-//
-//	DCSTemplate = IDInfoServer.GetDCSTemplate(MetadataName);
-//	Result = IDInfoServer.GetRefsByCondition(DCSTemplate, Settings);
 EndProcedure
 
 // Save rule settings.

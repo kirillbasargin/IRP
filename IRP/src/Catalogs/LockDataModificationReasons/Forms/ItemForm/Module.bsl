@@ -45,7 +45,7 @@ EndProcedure
 &AtServer
 Procedure BeforeWriteAtServer(Cancel, CurrentObject, WriteParameters)
 	If CurrentObject.AdvancedMode Then
-		CurrentObject.DCS = New ValueStorage(SettingsComposer.Settings);
+		CurrentObject.DCS = New ValueStorage(SettingsComposer.GetSettings());
 	Else
 		CurrentObject.DCS = Undefined;
 	EndIf; 
@@ -161,52 +161,56 @@ EndProcedure
 &AtServer
 Procedure UpdateQuery(Settings = Undefined)
 	
-	DCSTemplate = Catalogs.LockDataModificationReasons.GetTemplate("DCS");
+	DCSTemplate = Catalogs.IDInfoSets.GetTemplate("DCS_Catalog");
+	DCSTemplate.DataSets[0].Query = GetQueryTextTemplate();
 	
-	DataSources = DCSTemplate.DataSources.Add();
-	DataSources.DataSourceType = "Local";
-	DataSources.Name = "DataSource";
+	Address = PutToTempStorage(DCSTemplate);
+	SettingsComposer.Initialize(New DataCompositionAvailableSettingsSource(Address));
+	If Not Settings = Undefined Then
+		SettingsComposer.LoadSettings(Settings);
+	EndIf;
 	
+//	SettingsComposer.Settings.Selection.Items.Clear();
+//
+//	For Each Field In SettingsComposer.Settings.Selection.SelectionAvailableFields.Items Do
+//		Selection = SettingsComposer.Settings.Selection.Items.Add(Type("DataCompositionSelectedField"));
+//		Selection.Use = True;
+//		Selection.Field = Field.Field;
+//	EndDo;
+	
+	DCSTemplate = IDInfoServer.GetDCSTemplate(Object.RuleList[0].Type);
+	Settings1 = ThisObject.SettingsComposer.GetSettings();
+	Result = IDInfoServer.GetRefsByCondition(DCSTemplate, Settings1);
+	
+//	Composer = New DataCompositionTemplateComposer();
+//	Template = Composer.Execute(DCSTemplate, SettingsComposer.GetSettings(), , , Type("DataCompositionValueCollectionTemplateGenerator"));
+
+EndProcedure
+
+&AtServer
+Function GetQueryTextTemplate()
 	ValueListAvailableField = FillAttributeListHead();
 	AvailableField = New Array;
 	For Each Row In ValueListAvailableField Do
 		AvailableField.Add("DataSet." + StrSplit(String(Row), ".")[StrSplit(String(Row), ".").UBound()]);
 	EndDo;
-	AvailableFields = StrConcat(AvailableField, ", ");
+	AvailableFields = StrConcat(AvailableField, ", " + Chars.LF);
+	
+	QueryArray = New Array;
 	For Each Row In Object.RuleList Do
 		If Row.DisableRule Or IsBlankString(Row.Type) Then
 			Continue;
 		EndIf;
 		
-		Query = 
+		QueryArray.Add( 
 		"SELECT " + AvailableFields + "
 		|FROM
-		|    " + Row.Type + " AS DataSet";
-		DataSet = DCSTemplate.DataSets.Add(Type("DataCompositionSchemaDataSetQuery"));
-		DataSet.Query = Query;
-		DataSet.Name = Row.Type;
-		DataSet.DataSource = DataSources.Name;
-	EndDo;
-	
-	If DCSTemplate.DataSets.Count() = 0 Then
-		SettingsComposer = New DataCompositionSettingsComposer();
-		Return;
-	EndIf;
-	
-	Address = PutToTempStorage(DCSTemplate, UUID);
-	SettingsComposer.Initialize(New DataCompositionAvailableSettingsSource(Address));
-	If Not Settings = Undefined Then
-		SettingsComposer.LoadSettings(Settings);
-	EndIf;
-	SettingsComposer.Settings.Selection.Items.Clear();
+		|    " + Row.Type + " AS DataSet");
 
-	For Each Field In SettingsComposer.Settings.Selection.SelectionAvailableFields.Items Do
-		Selection = SettingsComposer.Settings.Selection.Items.Add(Type("DataCompositionSelectedField"));
-		Selection.Use = True;
-		Selection.Field = Field.Field;
 	EndDo;
-
-EndProcedure
+	QueryText = StrConcat(QueryArray, Chars.LF + "UNION ALL" + Chars.LF);
+	Return QueryText
+EndFunction
 
 #EndRegion
 
