@@ -1,5 +1,5 @@
 
-// @strict-types
+// strict-types
 
 #Region FormEvents
 
@@ -27,6 +27,13 @@ Procedure OnCreateAtServer(Cancel, StandardProcessing)
 		EndIf;
 	EndIf;
 	
+	If Parameters.Key.IsEmpty() Then
+		DCSTemplate = Catalogs.IDInfoSets.GetTemplate("DCS_Catalog");
+		DCSTemplate.DataSets[0].Query = "select * from Catalog.Currencies as Table";
+		Address = PutToTempStorage(DCSTemplate);
+		ThisObject.SettingsComposer.Initialize(New DataCompositionAvailableSettingsSource(Address));
+		ThisObject.SettingsComposer.LoadSettings(DCSTemplate.DefaultSettings);
+	EndIf;
 EndProcedure
 
 // Notification processing.
@@ -162,7 +169,7 @@ EndProcedure
 Procedure UpdateQuery(Settings = Undefined)
 	
 	DCSTemplate = Catalogs.IDInfoSets.GetTemplate("DCS_Catalog");
-	DCSTemplate.DataSets[0].Query = GetQueryTextTemplate();
+	DCSTemplate.DataSets[0].Query = "select * from Catalog.Currencies as Table"; //GetQueryTextTemplate();
 	
 	Address = PutToTempStorage(DCSTemplate);
 	SettingsComposer.Initialize(New DataCompositionAvailableSettingsSource(Address));
@@ -178,12 +185,12 @@ Procedure UpdateQuery(Settings = Undefined)
 //		Selection.Field = Field.Field;
 //	EndDo;
 	
-	DCSTemplate = IDInfoServer.GetDCSTemplate(Object.RuleList[0].Type);
-	Settings1 = ThisObject.SettingsComposer.GetSettings();
-	Result = IDInfoServer.GetRefsByCondition(DCSTemplate, Settings1);
+//	DCSTemplate = IDInfoServer.GetDCSTemplate(Object.RuleList[0].Type);
+//	Settings1 = ThisObject.SettingsComposer.GetSettings();
+//	Result = IDInfoServer.GetRefsByCondition(DCSTemplate, Settings1);
 	
-//	Composer = New DataCompositionTemplateComposer();
-//	Template = Composer.Execute(DCSTemplate, SettingsComposer.GetSettings(), , , Type("DataCompositionValueCollectionTemplateGenerator"));
+	Composer = New DataCompositionTemplateComposer();
+	Template = Composer.Execute(DCSTemplate, SettingsComposer.GetSettings(), , , Type("DataCompositionValueCollectionTemplateGenerator"));
 
 EndProcedure
 
