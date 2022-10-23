@@ -132,6 +132,7 @@
         <type>UsualGroup</type>
         <extInfo xsi:type="form:UsualGroupExtInfo">
           <group>HorizontalIfPossible</group>
+          <behavior>Auto</behavior>
           <showLeftMargin>true</showLeftMargin>
           <united>true</united>
           <throughAlign>Auto</throughAlign>
@@ -261,6 +262,7 @@
         <type>UsualGroup</type>
         <extInfo xsi:type="form:UsualGroupExtInfo">
           <group>HorizontalIfPossible</group>
+          <behavior>Auto</behavior>
           <showLeftMargin>true</showLeftMargin>
           <united>true</united>
           <throughAlign>Auto</throughAlign>
@@ -290,6 +292,7 @@
       <type>UsualGroup</type>
       <extInfo xsi:type="form:UsualGroupExtInfo">
         <group>Vertical</group>
+        <behavior>Auto</behavior>
         <showLeftMargin>true</showLeftMargin>
         <united>true</united>
         <throughAlign>Auto</throughAlign>
@@ -543,6 +546,7 @@
         <type>UsualGroup</type>
         <extInfo xsi:type="form:UsualGroupExtInfo">
           <group>Vertical</group>
+          <behavior>Auto</behavior>
           <showLeftMargin>true</showLeftMargin>
           <united>true</united>
           <throughAlign>Auto</throughAlign>
@@ -575,6 +579,7 @@
         <type>UsualGroup</type>
         <extInfo xsi:type="form:UsualGroupExtInfo">
           <group>Vertical</group>
+          <behavior>Auto</behavior>
           <showLeftMargin>true</showLeftMargin>
           <united>true</united>
           <throughAlign>Auto</throughAlign>
@@ -604,6 +609,7 @@
       <type>UsualGroup</type>
       <extInfo xsi:type="form:UsualGroupExtInfo">
         <group>AlwaysHorizontal</group>
+        <behavior>Auto</behavior>
         <showLeftMargin>true</showLeftMargin>
         <united>true</united>
         <throughAlign>Auto</throughAlign>
@@ -633,6 +639,7 @@
     <type>UsualGroup</type>
     <extInfo xsi:type="form:UsualGroupExtInfo">
       <group>Vertical</group>
+      <behavior>Auto</behavior>
       <controlRepresentation>Picture</controlRepresentation>
       <representation>WeakSeparation</representation>
       <showLeftMargin>true</showLeftMargin>
@@ -857,13 +864,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>CostRows.Currency</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>CostRows.Currency</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>CostRows.Currency</segments>
             </dataPath>
             <extendedTooltip>
               <name>CostRowsCurrencyExtendedTooltip</name>
@@ -913,13 +915,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>CostRows.Amount</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>CostRows.Amount</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>CostRows.Amount</segments>
             </dataPath>
             <extendedTooltip>
               <name>CostRowsAmountExtendedTooltip</name>
@@ -1055,6 +1052,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>CostRowsSearchString</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1093,6 +1091,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>CostRowsViewStatus</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1131,6 +1130,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>CostRowsSearchControl</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1438,13 +1438,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>AllocationRows.Store</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>AllocationRows.Store</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>AllocationRows.Store</segments>
             </dataPath>
             <extendedTooltip>
               <name>AllocationRowsStoreExtendedTooltip</name>
@@ -1494,13 +1489,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>AllocationRows.Amount</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>AllocationRows.Amount</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>AllocationRows.Amount</segments>
             </dataPath>
             <extendedTooltip>
               <name>AllocationRowsAmountExtendedTooltip</name>
@@ -1662,6 +1652,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>AllocationRowsSearchString</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1700,6 +1691,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>AllocationRowsViewStatus</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1738,6 +1730,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>AllocationRowsSearchControl</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -1815,6 +1808,7 @@
         <type>UsualGroup</type>
         <extInfo xsi:type="form:UsualGroupExtInfo">
           <group>AlwaysHorizontal</group>
+          <behavior>Auto</behavior>
           <representation>WeakSeparation</representation>
           <showLeftMargin>true</showLeftMargin>
           <united>true</united>
@@ -1895,13 +1889,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Object.CostDocuments.LineNumber</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>Object.CostDocuments.НомерСтроки</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Object.CostDocuments.LineNumber</segments>
             </dataPath>
             <extendedTooltip>
               <name>CostDocumentsLineNumberExtendedTooltip</name>
@@ -1950,13 +1939,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Object.CostDocuments.Document</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>Object.CostDocuments.Document</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Object.CostDocuments.Document</segments>
             </dataPath>
             <extendedTooltip>
               <name>CostDocumentsDocumentExtendedTooltip</name>
@@ -2009,13 +1993,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Object.CostDocuments.Currency</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>Object.CostDocuments.Currency</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Object.CostDocuments.Currency</segments>
             </dataPath>
             <extendedTooltip>
               <name>CostDocumentsCurrencyExtendedTooltip</name>
@@ -2065,13 +2044,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Object.CostDocuments.Amount</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>Object.CostDocuments.Amount</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Object.CostDocuments.Amount</segments>
             </dataPath>
             <extendedTooltip>
               <name>CostDocumentsAmountExtendedTooltip</name>
@@ -2125,16 +2099,16 @@
             <autoFill>true</autoFill>
           </autoCommandBar>
           <handlers>
-            <event>OnChange</event>
-            <name>CostDocumentsOnChange</name>
+            <event>OnActivateRow</event>
+            <name>CostDocumentsOnActivateRow</name>
           </handlers>
           <handlers>
             <event>AfterDeleteRow</event>
             <name>CostDocumentsAfterDeleteRow</name>
           </handlers>
           <handlers>
-            <event>OnActivateRow</event>
-            <name>CostDocumentsOnActivateRow</name>
+            <event>OnChange</event>
+            <name>CostDocumentsOnChange</name>
           </handlers>
           <searchStringAddition>
             <visible>true</visible>
@@ -2169,6 +2143,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>CostDocumentsSearchString</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2207,6 +2182,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>CostDocumentsViewStatus</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2245,6 +2221,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>CostDocumentsSearchControl</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2292,6 +2269,7 @@
           <horizontalStretch>true</horizontalStretch>
           <verticalStretch>true</verticalStretch>
           <fileDragMode>AsFileRef</fileDragMode>
+          <rowFilter xsi:type="core:UndefinedValue"/>
         </items>
         <items xsi:type="form:Table">
           <name>AllocationDocuments</name>
@@ -2362,13 +2340,8 @@
             <userVisible>
               <common>true</common>
             </userVisible>
-            <dataPath xsi:type="form:MultiLanguageDataPath">
-              <paths xsi:type="form:DataPath">
-                <segments>Object.AllocationDocuments.Document</segments>
-              </paths>
-              <paths xsi:type="form:DataPath">
-                <segments>Object.AllocationDocuments.Document</segments>
-              </paths>
+            <dataPath xsi:type="form:DataPath">
+              <segments>Object.AllocationDocuments.Document</segments>
             </dataPath>
             <extendedTooltip>
               <name>AllocationDocumentsDocumentExtendedTooltip</name>
@@ -2461,6 +2434,7 @@
               </userVisible>
               <autoFill>true</autoFill>
             </contextMenu>
+            <source>AllocationDocumentsSearchString</source>
             <extInfo xsi:type="form:SearchStringAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2499,6 +2473,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>ViewStatusAddition</type>
+            <source>AllocationDocumentsViewStatus</source>
             <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2537,6 +2512,7 @@
               <autoFill>true</autoFill>
             </contextMenu>
             <type>SearchControlAddition</type>
+            <source>AllocationDocumentsSearchControl</source>
             <extInfo xsi:type="form:SearchControlAdditionExtInfo">
               <autoMaxWidth>true</autoMaxWidth>
             </extInfo>
@@ -2584,6 +2560,7 @@
           <horizontalStretch>true</horizontalStretch>
           <verticalStretch>true</verticalStretch>
           <fileDragMode>AsFileRef</fileDragMode>
+          <rowFilter xsi:type="core:UndefinedValue"/>
         </items>
         <visible>true</visible>
         <enabled>true</enabled>
@@ -2612,6 +2589,7 @@
         <type>UsualGroup</type>
         <extInfo xsi:type="form:UsualGroupExtInfo">
           <group>AlwaysHorizontal</group>
+          <behavior>Auto</behavior>
           <representation>WeakSeparation</representation>
           <showLeftMargin>true</showLeftMargin>
           <united>true</united>
@@ -2661,10 +2639,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.Number</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.Number</segments>
         </dataPath>
         <extendedTooltip>
           <name>NumberExtendedTooltip</name>
@@ -2713,10 +2689,8 @@
         <userVisible>
           <common>true</common>
         </userVisible>
-        <dataPath xsi:type="form:MultiLanguageDataPath">
-          <paths xsi:type="form:DataPath">
-            <segments>Object.Date</segments>
-          </paths>
+        <dataPath xsi:type="form:DataPath">
+          <segments>Object.Date</segments>
         </dataPath>
         <extendedTooltip>
           <name>DateExtendedTooltip</name>
@@ -2909,13 +2883,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.LineNumber</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.НомерСтроки</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.CostList.LineNumber</segments>
           </dataPath>
           <extendedTooltip>
             <name>CostListLineNumberExtendedTooltip</name>
@@ -2964,13 +2933,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.RowID</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.RowID</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.CostList.RowID</segments>
           </dataPath>
           <extendedTooltip>
             <name>CostListRowIDExtendedTooltip</name>
@@ -3019,13 +2983,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.Basis</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.Basis</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.CostList.Basis</segments>
           </dataPath>
           <extendedTooltip>
             <name>CostListBasisExtendedTooltip</name>
@@ -3074,13 +3033,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.ItemKey</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.ItemKey</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.CostList.ItemKey</segments>
           </dataPath>
           <extendedTooltip>
             <name>CostListItemKeyExtendedTooltip</name>
@@ -3129,13 +3083,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.Currency</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.Currency</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.CostList.Currency</segments>
           </dataPath>
           <extendedTooltip>
             <name>CostListCurrencyExtendedTooltip</name>
@@ -3184,13 +3133,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.Amount</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.CostList.Amount</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.CostList.Amount</segments>
           </dataPath>
           <extendedTooltip>
             <name>CostListAmountExtendedTooltip</name>
@@ -3277,6 +3221,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>CostListSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -3315,6 +3260,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>CostListViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -3353,6 +3299,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>CostListSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -3401,6 +3348,7 @@
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
         <fileDragMode>AsFileRef</fileDragMode>
+        <rowFilter xsi:type="core:UndefinedValue"/>
       </items>
       <items xsi:type="form:Table">
         <name>AllocationList</name>
@@ -3421,13 +3369,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.LineNumber</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.НомерСтроки</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.AllocationList.LineNumber</segments>
           </dataPath>
           <extendedTooltip>
             <name>AllocationListLineNumberExtendedTooltip</name>
@@ -3476,13 +3419,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.BasisRowID</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.BasisRowID</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.AllocationList.BasisRowID</segments>
           </dataPath>
           <extendedTooltip>
             <name>AllocationListBasisRowIDExtendedTooltip</name>
@@ -3531,13 +3469,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.RowID</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.RowID</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.AllocationList.RowID</segments>
           </dataPath>
           <extendedTooltip>
             <name>AllocationListRowIDExtendedTooltip</name>
@@ -3586,13 +3519,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.Document</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.Document</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.AllocationList.Document</segments>
           </dataPath>
           <extendedTooltip>
             <name>AllocationListDocumentExtendedTooltip</name>
@@ -3641,13 +3569,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.Store</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.Store</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.AllocationList.Store</segments>
           </dataPath>
           <extendedTooltip>
             <name>AllocationListStoreExtendedTooltip</name>
@@ -3696,13 +3619,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.ItemKey</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.ItemKey</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.AllocationList.ItemKey</segments>
           </dataPath>
           <extendedTooltip>
             <name>AllocationListItemKeyExtendedTooltip</name>
@@ -3751,13 +3669,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.Amount</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>Object.AllocationList.Amount</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>Object.AllocationList.Amount</segments>
           </dataPath>
           <extendedTooltip>
             <name>AllocationListAmountExtendedTooltip</name>
@@ -3844,6 +3757,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>AllocationListSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -3882,6 +3796,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>AllocationListViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -3920,6 +3835,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>AllocationListSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -3968,6 +3884,7 @@
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
         <fileDragMode>AsFileRef</fileDragMode>
+        <rowFilter xsi:type="core:UndefinedValue"/>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -4025,7 +3942,7 @@
     </extendedTooltip>
     <type>Pages</type>
     <extInfo xsi:type="form:PagesGroupExtInfo">
-      <pagesRepresentation>TabsOnTop</pagesRepresentation>
+      <pagesRepresentation>Auto</pagesRepresentation>
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
@@ -4103,16 +4020,16 @@
     <autoFill>true</autoFill>
   </autoCommandBar>
   <handlers>
-    <event>OnCreateAtServer</event>
-    <name>OnCreateAtServer</name>
+    <event>NotificationProcessing</event>
+    <name>NotificationProcessing</name>
   </handlers>
   <handlers>
     <event>OnOpen</event>
     <name>OnOpen</name>
   </handlers>
   <handlers>
-    <event>NotificationProcessing</event>
-    <name>NotificationProcessing</name>
+    <event>OnCreateAtServer</event>
+    <name>OnCreateAtServer</name>
   </handlers>
   <autoTitle>true</autoTitle>
   <autoUrl>true</autoUrl>
@@ -4134,10 +4051,8 @@
     <edit>
       <common>true</common>
     </edit>
-    <notDefaultUseAlwaysAttributes xsi:type="form:MultiLanguageDataPath">
-      <paths xsi:type="form:DataPath">
-        <segments>Object.RegisterRecords</segments>
-      </paths>
+    <notDefaultUseAlwaysAttributes xsi:type="form:DataPath">
+      <segments>Object.RegisterRecords</segments>
     </notDefaultUseAlwaysAttributes>
     <main>true</main>
     <savedData>true</savedData>
@@ -4623,20 +4538,20 @@
       <name>AfterWrite</name>
     </handlers>
     <handlers>
-      <event>OnReadAtServer</event>
-      <name>OnReadAtServer</name>
-    </handlers>
-    <handlers>
       <event>AfterWriteAtServer</event>
       <name>AfterWriteAtServer</name>
     </handlers>
     <handlers>
-      <event>OnWriteAtServer</event>
-      <name>OnWriteAtServer</name>
+      <event>OnReadAtServer</event>
+      <name>OnReadAtServer</name>
     </handlers>
     <handlers>
       <event>BeforeWriteAtServer</event>
       <name>BeforeWriteAtServer</name>
+    </handlers>
+    <handlers>
+      <event>OnWriteAtServer</event>
+      <name>OnWriteAtServer</name>
     </handlers>
     <repostOnWrite>true</repostOnWrite>
   </extInfo>

@@ -82,6 +82,7 @@
         <type>UsualGroup</type>
         <extInfo xsi:type="form:UsualGroupExtInfo">
           <group>HorizontalIfPossible</group>
+          <behavior>Auto</behavior>
           <showLeftMargin>true</showLeftMargin>
           <united>true</united>
           <throughAlign>Auto</throughAlign>
@@ -686,6 +687,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>CurrenciesSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -724,6 +726,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>CurrenciesViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -763,6 +766,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>CurrenciesSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1178,6 +1182,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>CompanyTaxesSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1216,6 +1221,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>CompanyTaxesViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
             <horizontalLocation>Left</horizontalLocation>
@@ -1255,6 +1261,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>CompanyTaxesSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1357,13 +1364,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>CompanyLedgerTypes.Period</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>CompanyLedgerTypes.Period</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>CompanyLedgerTypes.Period</segments>
           </dataPath>
           <extendedTooltip>
             <name>CompanyLedgerTypesPeriodExtendedTooltip</name>
@@ -1412,13 +1414,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>CompanyLedgerTypes.Use</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>CompanyLedgerTypes.Use</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>CompanyLedgerTypes.Use</segments>
           </dataPath>
           <extendedTooltip>
             <name>CompanyLedgerTypesUseExtendedTooltip</name>
@@ -1460,13 +1457,8 @@
           <userVisible>
             <common>true</common>
           </userVisible>
-          <dataPath xsi:type="form:MultiLanguageDataPath">
-            <paths xsi:type="form:DataPath">
-              <segments>CompanyLedgerTypes.LedgerType</segments>
-            </paths>
-            <paths xsi:type="form:DataPath">
-              <segments>CompanyLedgerTypes.LedgerType</segments>
-            </paths>
+          <dataPath xsi:type="form:DataPath">
+            <segments>CompanyLedgerTypes.LedgerType</segments>
           </dataPath>
           <extendedTooltip>
             <name>CompanyLedgerTypesLedgerTypeExtendedTooltip</name>
@@ -1559,6 +1551,7 @@
             </userVisible>
             <autoFill>true</autoFill>
           </contextMenu>
+          <source>CompanyLedgerTypesSearchString</source>
           <extInfo xsi:type="form:SearchStringAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1597,6 +1590,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>ViewStatusAddition</type>
+          <source>CompanyLedgerTypesViewStatus</source>
           <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1635,6 +1629,7 @@
             <autoFill>true</autoFill>
           </contextMenu>
           <type>SearchControlAddition</type>
+          <source>CompanyLedgerTypesSearchControl</source>
           <extInfo xsi:type="form:SearchControlAdditionExtInfo">
             <autoMaxWidth>true</autoMaxWidth>
           </extInfo>
@@ -1682,6 +1677,7 @@
         <horizontalStretch>true</horizontalStretch>
         <verticalStretch>true</verticalStretch>
         <fileDragMode>AsFileRef</fileDragMode>
+        <rowFilter xsi:type="core:UndefinedValue"/>
       </items>
       <visible>true</visible>
       <enabled>true</enabled>
@@ -1969,7 +1965,7 @@
     </extendedTooltip>
     <type>Pages</type>
     <extInfo xsi:type="form:PagesGroupExtInfo">
-      <pagesRepresentation>TabsOnTop</pagesRepresentation>
+      <pagesRepresentation>Auto</pagesRepresentation>
       <currentRowUse>Auto</currentRowUse>
     </extInfo>
   </items>
@@ -2239,25 +2235,16 @@
     <navigationPanel>
       <cmiFragmentRecord>
         <command>InformationRegister.Taxes.StandardCommand.OpenByValue.Company</command>
-        <commandParameter xsi:type="form:DataPath">
-          <segments>Object.Ref</segments>
-        </commandParameter>
         <group>FormNavigationPanelGoTo</group>
         <index>2</index>
         <userVisible/>
       </cmiFragmentRecord>
       <cmiFragmentRecord>
         <command>Form.StandardCommand.RestoreValues</command>
-        <commandParameter xsi:type="form:DataPath">
-          <segments>Object.Ref</segments>
-        </commandParameter>
         <userVisible/>
       </cmiFragmentRecord>
       <cmiFragmentRecord>
         <command>InformationRegister.CompanyLedgerTypes.StandardCommand.OpenByValue.Company</command>
-        <commandParameter xsi:type="form:DataPath">
-          <segments>Object.Ref</segments>
-        </commandParameter>
         <group>FormNavigationPanelGoTo</group>
         <index>3</index>
         <userVisible/>
