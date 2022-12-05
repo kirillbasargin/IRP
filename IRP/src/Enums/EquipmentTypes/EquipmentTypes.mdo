@@ -26,4 +26,11 @@
       <value>Barcode scanner</value>
     </synonym>
   </enumValues>
+  <enumValues uuid="a20f2950-dc47-40fd-91b7-1f11823a896b">
+    <name>CashRegister</name>
+    <synonym>
+      <key>en</key>
+      <value>Cash register</value>
+    </synonym>
+  </enumValues>
 </mdclass:Enum>

@@ -4,18 +4,9 @@
 Function GetDefaultSettings(EquipmentType) Export
 	Settings = New Structure();
 	If EquipmentType = PredefinedValue("Enum.EquipmentTypes.InputDevice") Then
-		Settings.Insert("COMEncoding", "UTF-8");
-		Settings.Insert("DataBits", 8);
-		Settings.Insert("GSSymbolKey", -1);
-		Settings.Insert("IgnoreKeyboardState", True);
-		Settings.Insert("OutputDataType", 0);
-		Settings.Insert("Port", 3);
-		Settings.Insert("Prefix", -1);
-		Settings.Insert("Speed", 9600);
-		Settings.Insert("StopBit", 0);
-		Settings.Insert("Suffix", 13);
-		Settings.Insert("Timeout", 75);
-		Settings.Insert("TimeoutCOM", 5);
+		FillDefaultSettingsInputDevice(Settings);
+	ElsIf EquipmentType = PredefinedValue("Enum.EquipmentTypes.CashRegister") Then
+		FillDefaultSettingsCashRegister(Settings);
 	EndIf;
 	Return Settings;
 EndFunction
@@ -234,6 +225,35 @@ Procedure ConnectHardware_End(Result, Param) Export
 	Else
 		Status(R().Eq_005);
 	EndIf;
+EndProcedure
+
+Procedure FillDefaultSettingsInputDevice(Settings)
+	Settings.Insert("COMEncoding", "UTF-8");
+	Settings.Insert("DataBits", 8);
+	Settings.Insert("GSSymbolKey", -1);
+	Settings.Insert("IgnoreKeyboardState", True);
+	Settings.Insert("OutputDataType", 0);
+	Settings.Insert("Port", 3);
+	Settings.Insert("Prefix", -1);
+	Settings.Insert("Speed", 9600);
+	Settings.Insert("StopBit", 0);
+	Settings.Insert("Suffix", 13);
+	Settings.Insert("Timeout", 75);
+	Settings.Insert("TimeoutCOM", 5);	
+EndProcedure
+
+Procedure FillDefaultSettingsCashRegister(Settings)
+	Settings.Insert("COMEncoding", "UTF-8");
+	Settings.Insert("DataBits", 8);
+	Settings.Insert("GSSymbolKey", -1);
+	Settings.Insert("IgnoreKeyboardState", True);
+	Settings.Insert("OutputDataType", 0);
+	Settings.Insert("Port", 3);
+	Settings.Insert("Prefix", -1);
+	Settings.Insert("Speed", 9600);
+	Settings.Insert("StopBit", 0);
+	Settings.Insert("Timeout", 75);
+	Settings.Insert("TimeoutCOM", 5);	
 EndProcedure
 
 #EndRegion
