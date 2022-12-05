@@ -115,6 +115,26 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
+  <attributes uuid="9d19748e-ec9f-49af-a9d0-fa6e3d201052">
+    <name>Module</name>
+    <synonym>
+      <key>en</key>
+      <value>Module</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>128</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <tabularSections uuid="0992d6cf-cc34-493b-b258-01c607054de6">
     <producedTypes>
       <objectType typeId="18392ead-1e0b-4444-b026-531a884a133f" valueTypeId="3071f623-4260-4136-845e-786e654e0bd6"/>

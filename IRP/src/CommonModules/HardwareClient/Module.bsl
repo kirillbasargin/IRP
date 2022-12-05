@@ -16,7 +16,11 @@ Procedure BeginGetDriver(NotifyOnClose, DriverInfo) Export
 	ObjectName.Add(ObjectName[1]);
 	Params = New Structure("ProgID, NotifyOnClose, EquipmentDriver", StrConcat(ObjectName, "."), NotifyOnClose,
 		DriverInfo.Driver);
-	NotifyDescription = New NotifyDescription("BeginAttachingAddIn_End", ThisObject, Params);
+	NotifyDescription = New NotifyDescription("BeginAttachingAddIn_End"
+												, ThisObject
+												, Params
+												, "BeginAttachingAddIn_EndError"
+												, ThisObject);
 
 	LinkOnDriver = GetURL(DriverInfo.Driver, "Driver");
 	BeginAttachingAddIn(NotifyDescription, LinkOnDriver, ObjectName[1]);
@@ -42,6 +46,10 @@ Procedure BeginAttachingAddIn_End(Connected, AddInfo) Export
 	EndIf;
 
 	ExecuteNotifyProcessing(AddInfo.NotifyOnClose, Undefined);
+EndProcedure
+
+Procedure BeginAttachingAddIn_EndError(ErrorInfo, StandardProcessingб, AddInfo) Export
+	
 EndProcedure
 
 Procedure InstallDriver(ID, NotifyOnCloseArchive = Undefined) Export
@@ -109,7 +117,7 @@ Procedure BeginStartAdditionalCommand_End(DriverObject, CommandParameters) Expor
 		ProcessingModule = GetProcessingModule(DeviceData.EquipmentType);
 
 		preConnectionParameters = New Structure();
-		preConnectionParameters.Insert("EquipmentType", "СканерШтрихкода");
+		//preConnectionParameters.Insert("EquipmentType", "СканерШтрихкода");
 
 		ErrorText = "";
 		OutParameters = Undefined;
@@ -216,7 +224,13 @@ Async Function GetDriverObject(DriverInfo, ErrorText = Undefined)
 EndFunction
 
 Function GetProcessingModule(EquipmentType)
-	Return Undefined;
+	If EquipmentType = PredefinedValue("Enum.EquipmentTypes.BarcodeScanner") Then
+		Return HardwareInputDevice;
+	ElsIf EquipmentType = PredefinedValue("Enum.EquipmentTypes.CashRegister") Then
+		Return HardwareCashRegisterDevice;
+	Else
+		Return Undefined;
+	EndIf;
 EndFunction
 
 Procedure ConnectHardware_End(Result, Param) Export

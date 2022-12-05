@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="4c66c8a3-af49-4fed-8f4a-7c21d9775004">
+  <name>HardwareCashRegisterDevice</name>
+  <synonym>
+    <key>en</key>
+    <value>Hardware cash register device</value>
+  </synonym>
+  <clientManagedApplication>true</clientManagedApplication>
+  <clientOrdinaryApplication>true</clientOrdinaryApplication>
+</mdclass:CommonModule>
