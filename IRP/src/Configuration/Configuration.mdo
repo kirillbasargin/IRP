@@ -441,6 +441,7 @@
   <commonModules>CommonModule.CommissionTradePrivileged</commonModules>
   <commonModules>CommonModule.HardwareInputDevice</commonModules>
   <commonModules>CommonModule.HardwareCashRegisterDevice</commonModules>
+  <commonModules>CommonModule.HardwareUniversalDriverClient</commonModules>
   <commonAttributes>CommonAttribute.Author</commonAttributes>
   <commonAttributes>CommonAttribute.Branch</commonAttributes>
   <commonAttributes>CommonAttribute.Description</commonAttributes>
