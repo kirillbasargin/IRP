@@ -118,6 +118,7 @@ Procedure BeginStartAdditionalCommand_End(DriverObject, CommandParameters) Expor
 
 		preConnectionParameters = New Structure();
 		//preConnectionParameters.Insert("EquipmentType", "СканерШтрихкода");
+		preConnectionParameters.Insert("ID", "");
 
 		ErrorText = "";
 		OutParameters = Undefined;

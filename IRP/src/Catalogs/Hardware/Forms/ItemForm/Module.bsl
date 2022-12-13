@@ -64,6 +64,82 @@ Procedure Test(Command)
 	HardwareClient.BeginStartAdditionalCommand(Notify, "CheckHealth", InParameters, Object.Ref, DeviceParameters);
 EndProcedure
 
+&AtClient
+Procedure OpenShift(Command)
+	ClearMessages();
+
+	ReadOnly = True;
+	CommandBar.Enabled = False;
+
+	InParameters  = Undefined;
+	DeviceParameters = New Structure();
+
+	For Each Row In Object.ConnectParameters Do
+		DeviceParameters.Insert("P_" + Row.Name, Row.Value);
+	EndDo;
+
+	Notify = New NotifyDescription("EndTestDevice", ThisObject);
+	HardwareClient.BeginStartAdditionalCommand(Notify, "OpenShift", InParameters, Object.Ref, DeviceParameters);
+EndProcedure
+
+&AtClient
+Procedure CloseShift(Command)
+	ClearMessages();
+
+	ReadOnly = True;
+	CommandBar.Enabled = False;
+
+	InParameters  = Undefined;
+	DeviceParameters = New Structure();
+
+	For Each Row In Object.ConnectParameters Do
+		DeviceParameters.Insert("P_" + Row.Name, Row.Value);
+	EndDo;
+
+	Notify = New NotifyDescription("EndTestDevice", ThisObject);
+	HardwareClient.BeginStartAdditionalCommand(Notify, "CloseShift", InParameters, Object.Ref, DeviceParameters);
+EndProcedure
+
+&AtClient
+Procedure ReportX(Command)
+	ClearMessages();
+
+	ReadOnly = True;
+	CommandBar.Enabled = False;
+
+	InParameters  = Undefined;
+	DeviceParameters = New Structure();
+
+	For Each Row In Object.ConnectParameters Do
+		DeviceParameters.Insert("P_" + Row.Name, Row.Value);
+	EndDo;
+
+	Notify = New NotifyDescription("EndTestDevice", ThisObject);
+	HardwareClient.BeginStartAdditionalCommand(Notify, "ReportX", InParameters, Object.Ref, DeviceParameters);
+EndProcedure
+
+&AtClient
+Procedure OpenCashDrawer(Command)
+	ClearMessages();
+
+	ReadOnly = True;
+	CommandBar.Enabled = False;
+
+	InParameters  = Undefined;
+	DeviceParameters = New Structure();
+
+	For Each Row In Object.ConnectParameters Do
+		DeviceParameters.Insert("P_" + Row.Name, Row.Value);
+	EndDo;
+
+	Notify = New NotifyDescription("EndTestDevice", ThisObject);
+	HardwareClient.BeginStartAdditionalCommand(Notify, "OpenCashDrawer", InParameters, Object.Ref, DeviceParameters);
+EndProcedure
+
+
+
+
+
 #EndRegion
 
 #Region Internal

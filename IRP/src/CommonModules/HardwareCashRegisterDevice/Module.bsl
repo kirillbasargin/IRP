@@ -5,7 +5,7 @@ Function ConnectDevice(DriverObject, ConnectionParameters, OutParameters) Export
 	Result = True;
 
 	OutParameters = New Array;
-	ConnectionParameters.Insert("ИДУстройства", "");
+	ConnectionParameters.Insert("ID", "");
 
 	DriverObject.УстановитьПараметр("EquipmentType", "ФискальныйРегистратор");
 
@@ -51,6 +51,15 @@ Function RunCommand(Command, InParameters = Undefined, OutParameters = Undefined
 	
 	If Command = "TestDevice" ИЛИ Command = "CheckHealth" Then
 		Result = TestDevice(DriverObject, Parameters, ConnectionParameters, OutParameters);
+	ElsIf Command = "OpenShift" Then
+		Response = OpenShift(DriverObject, ConnectionParameters);
+		Result = Response.Successful;
+	ElsIf Command = "CloseShift" Then
+		Response = CloseShift(DriverObject, ConnectionParameters);
+		Result = Response.Successful;
+	ElsIf Command = "ReportX" Then
+		Response = ReportX(DriverObject, ConnectionParameters);
+		Result = Response.Successful;
 	Else
 		OutParameters.Add(999);
 		OutParameters.Add(RL().s1 + Command);
