@@ -7,18 +7,20 @@ Function ConnectDevice(DriverObject, ConnectionParameters, OutParameters) Export
 	OutParameters = New Array;
 	ConnectionParameters.Insert("ID", "");
 
-	DriverObject.УстановитьПараметр("EquipmentType", "ФискальныйРегистратор");
+	DriverObject.УстановитьПараметр("EquipmentType", "ККТ");
 
 	DriverName				= "";
 	DriverDescription		= "";
 	DeviceType				= "";
 	IntegrationComponent	= False;
 	MainDriverInstalled		= False;
-	InterfaceRevision		= 2004;
+	InterfaceRevision		= 3005;
 	DriverURL				= "";
+	DriverDescription = "";
 
-	DriverObject.ПолучитьОписание(DriverName, DriverDescription, DeviceType, InterfaceRevision, 
-											IntegrationComponent, MainDriverInstalled, DriverURL);
+	//DriverObject.ПолучитьОписание(DriverName, DriverDescription, DeviceType, InterfaceRevision, 
+	//										IntegrationComponent, MainDriverInstalled, DriverURL);
+	DriverObject.GetDescription(DriverDescription);
 		
 	ConnectionParameters.Insert("РевизияИнтерфейса", InterfaceRevision);		
 		
@@ -28,7 +30,7 @@ Function ConnectDevice(DriverObject, ConnectionParameters, OutParameters) Export
 		DriverObject.УстановитьПараметр(ParameterName, ParameterValue) 
 	EndDo;	
 
-	Response = DriverObject.Подключить(ConnectionParameters.ИДУстройства);
+	Response = DriverObject.Подключить(ConnectionParameters.ID);
 	
 	If Not Response Then
 		Result = False;

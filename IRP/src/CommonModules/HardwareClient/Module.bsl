@@ -61,7 +61,7 @@ EndProcedure
 Procedure BeginStartAdditionalCommand(NotifyOnClose, Command, IncomingParams, ID, Parameters) Export
 	ConnectedDevice = GetConnectedDevice(globalEquipments.ConnectionSettings, ID);
 
-	If ConnectedDevice = Undefined Then
+	If Not ConnectedDevice = Undefined Then
 		DeviceData = HardwareServer.GetConnectionSettings(ID);
 		CommandParameters = New Structure();
 		CommandParameters.Insert("Command", Command);
