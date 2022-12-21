@@ -463,6 +463,8 @@ Function PostingGetDocumentDataTables(Ref, Cancel, PostingMode, Parameters, AddI
 	BatchKeysInfo_DataTableGrouped_Copy.Columns.Delete("__tmp_Amount");
 	BatchKeysInfo_DataTableGrouped_Copy.Columns.Delete("__tmp_AmountTax");
 	
+	BatchKeysInfo_DataTableGrouped_Copy.GroupBy("BatchConsignor, Company, Currency, CurrencyMovementType, Direction, ItemKey, Period, SalesInvoice, SerialLotNumber, SourceOfOrigin, Store", "Amount, AmountTax, Quantity");	
+
 	Query = New Query();
 	Query.TempTablesManager = Parameters.TempTablesManager;
 	Query.Text = 
