@@ -813,7 +813,23 @@ Scenario: _985003 test objects removel
 			| "Ob.GetObject().Delete();"|
 	
 	
-		
-	
+Scenario: temporarily
+		And I close all client application windows		
+	* Add test extension
+		Given I open hyperlink "e1cib/list/Catalog.Extensions"
+		If "List" table does not contain lines Then
+				| "Description" |
+				| "AdditionalFunctionality" |
+			When add Additional Functionality extension
+	* Open External functions
+		Given I open hyperlink "e1cib/list/Catalog.ExternalFunctions"
+	* Select function with reg exp
+		And I click "Create" button
+		And I input "test" text in the field named "Description"
+		And I select "Reg exp" exact value from "Type" drop-down list
+		And I input "." text in the field named "RegExp"
+		And I click the button named "RunRegExp"
+
+				
 		
 
